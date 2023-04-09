@@ -8,6 +8,8 @@ class Server {
     this.port = process.env.PORT;
     this.usuariosPath = "/api/usuarios";
 
+    this.ipServer();
+
     //Conectar a base de datos
     this.conectarDB();
 
@@ -41,6 +43,20 @@ class Server {
     this.app.listen(this.port, () => {
       console.log("Servidor corriendo en puerto", this.port);
     });
+  }
+
+  ipServer() {
+    var os = require("os");
+    var ifaces = os.networkInterfaces();
+    for (var dev in ifaces) {
+      var alias = 0;
+      ifaces[dev].forEach(function (details) {
+        if (details.family == "IPv4") {
+          console.log(dev + (alias ? ":" + alias : ""), details.address);
+          ++alias;
+        }
+      });
+    }
   }
 }
 
