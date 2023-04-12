@@ -1,5 +1,5 @@
 {
-  "name": "participantes-qr-backend",
+  "name": "api-nodejs-mongodb",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
